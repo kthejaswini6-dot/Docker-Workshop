@@ -9,7 +9,6 @@ year = 2021
 month = 1
 
 
-
 prefix = 'https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/'
 
 
@@ -46,20 +45,7 @@ df = pd.read_csv(
     parse_dates=parse_dates
 )
 
-
-
-
-get_ipython().system('uv add sqlalchemy "psycopg[binary,pool]"')
-
-
-
-
-
-
 engine = create_engine('postgresql+psycopg://{pg_user}:{pg_pass}@{pg_host}: {pg_port}/{pg_db}',pool_pre_ping=True)
-
-
-
 
 
 # In[12]:
@@ -98,8 +84,12 @@ def run():
         if_exists="append"
     )
 
-    print("Inserted:", len(df_chunk))
 
+
+print("Inserted:", len(df_chunk))
+
+if __name__ == '__main__':
+    run()
 
 # In[ ]:
 
